@@ -18,3 +18,10 @@ E "p12345" no campo "senha"
 E solicito criação de conta
 Então é exibida uma mensagem falando que já existe usuário com "pjcs@cin.ufpe.br" no campo "e-mail"
 
+Cenário: senha inválida
+Dado que eu estou na página de cadastro
+E não existe cadastro no sistema com "pjcs@cin.ufpe.br" no campo "e-mail"
+Quando eu insiro "pjcs@cin.ufpe.br" no campo "e-mail"
+E "123" no campo "senha"
+E solicito criação de conta
+Então é exibida uma mensagem falando que a senha é inválida
