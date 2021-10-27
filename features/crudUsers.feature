@@ -25,3 +25,11 @@ Quando eu insiro "pjcs@cin.ufpe.br" no campo "e-mail"
 E "123" no campo "senha"
 E solicito criação de conta
 Então é exibida uma mensagem falando que a senha é inválida
+
+Cenário: Modificar email
+Dado que eu estou na página de perfil
+E não existe cadastro no sistema com "pjcs2@cin.ufpe.br" no campo "e-mail"
+Quando eu solicito edição no meu perfil
+E insiro o novo "e-mail" como "pjcs2@cin.ufpe.br"
+E solicito a edição de conta
+Então é exibida uma mensagem de sucesso na edição
