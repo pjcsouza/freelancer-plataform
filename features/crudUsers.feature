@@ -34,3 +34,35 @@ E insiro o novo "e-mail" como "pjcs2@cin.ufpe.br"
 E solicito a edição de conta
 Então é exibida uma mensagem de sucesso na edição
 E volta para a tela de perfil
+
+Cenário: Modificar senha
+Dado que eu estou na página de perfil
+Quando eu solicito edição no meu perfil
+E insiro a nova "senha" como "p54321"
+E solicito a edição de conta
+Então é exibida uma mensagem de sucesso na edição
+E volta para a tela de perfil
+
+Cenário: Modificar email para email inválido
+Dado que eu estou na página de perfil
+E existe cadastro no sistema com "pjcs2@cin.ufpe.br" no campo "e-mail"
+Quando eu solicito edição no meu perfil
+E insiro o novo "e-mail" como "pjcs2@cin.ufpe.br"
+E solicito a edição de conta
+Então é exibida uma mensagem de erro na edição mostrando que já existe conta com o email "pjcs2@cin.ufpe.br"
+
+Cenário: Modificar senha para senha inválida
+Dado que eu estou na página de perfil
+Quando eu solicito edição no meu perfil
+E insiro a nova "senha" como "p543"
+E solicito a edição de conta
+Então é exibida uma mensagem de erro na edição por senha inválida
+
+Cenário: Deletar conta
+Dado que eu estou na página de perfil
+Quando eu solicito apagar no meu perfil
+E insiro a nova "senha" como "p543"
+E solicito a edição de conta
+Então é exibida uma mensagem de erro na edição por senha inválida
+
+
