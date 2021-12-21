@@ -1,66 +1,58 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import { Service } from '../models/service';
+import { ServiceService } from '../services/service.service';
 
-interface Service {
-  id: number;
-  description: string;
-  value: number;
-  rating:number;
-  freelancer?:string;
-  status?:string;
-  
-}
-const SERVICES: Service[] = [
-  {
-    id: 1,
-    description: 'plataforma web para briga de galo',
-    value: 10000,
-    status:'open',
-    rating:0
 
-  },
-  {
-    id: 2,
-  description: 'e-commerce de orgaos',
-  value: 50000,
-  freelancer:'pedruz',
-  status:'in progress',
-  rating:0
-
-  },
-  {
-    id: 3,
-  description: 'e-commerce de orgaos',
-  value: 50000,
-  rating:5,
-  freelancer:'zouza',
-  status:'done'
-  },
-  
-];
 
 
 @Component({
   selector: 'app-list-services',
   templateUrl: './list-services.component.html',
   styleUrls: ['./list-services.component.scss'],
-  providers: [NgbRatingConfig]
+  
 })
 export class ListServicesComponent implements OnInit {
+  constructor(private serviceService: ServiceService) {
+    
+  }
   
-  constructor(config: NgbRatingConfig) {
-    // customize default values of ratings used by this component tree
-    config.max = 5;
-    config.readonly = true;
+  services: Service[] = [];
+  offers :Service[]=[];
+  requests :Service[]=[];
+  ngOnInit(): void {
+    this.getAllServices();
+    
+  }
+  getAllServices(){
+    return this.serviceService.getAllServices().subscribe({
+      next:(services)=>{
+        this.services = services;
+        this.offers = this.services.filter((e)=>e.tipo=="oferta");
+        this.requests = this.services.filter((e)=>e.tipo=="demanda");
+
+      },
+      error:(err)=>{
+        alert('nao foi possivel resgatar os servicos')
+      }
+    });
+  };
+  deleteService(id:number){
+    let confirmacao = confirm("Deseja deletar?");
+    if(confirmacao){
+      this.serviceService.deleteService(id).subscribe({
+        next:()=>{
+          this.getAllServices();
+        },
+        error:()=>{
+          alert('nao foi possivel resgatar os servicos')
+        }
+      });
+    }
+
   }
 
-  ngOnInit(): void {
-    
-    
-  }
-  openServices = SERVICES.filter((value)=>value.status=='open');
-  inProgressServices = SERVICES.filter((value)=>value.status=='in progress');
-  doneServices = SERVICES.filter((value)=>value.status=='done');
+
   
 
 }

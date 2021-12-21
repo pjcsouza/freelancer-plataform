@@ -1,1 +1,19 @@
-<p>new-service works!</p>
+<div class="page">
+    <div class="form">
+
+
+        <a href="/services">Voltar para Meus Serviços</a>
+        <h1 class="title">Novo serviço</h1>
+        <select name="select" class="select-input" [(ngModel)]="tipo">
+            <option value="" selected disabled>Selecione o tipo da solicitação:</option>
+            <option value="oferta" >Oferecer serviço</option>
+            <option value="demanda">Solicitar serviço</option>
+          </select>
+        
+        <input placeholder="Descrição" [(ngModel)]="descricao" type="text"/>
+        <input placeholder="Valor" [(ngModel)]="valor" type="number"/>
+        
+
+        <button (click)="newService()">Cadastrar serviço</button>
+    </div>
+</div>

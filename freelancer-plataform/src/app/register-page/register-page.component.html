@@ -1,18 +1,22 @@
 <div class="page">
     <div class="form">
         <h1 class="title">Cadastre-se</h1>
-        <input class="input-field" placeholder="Nome">
-        <input class="input-field" placeholder="E-mail">
-        <input class="input-field" placeholder="Senha">
-        <input class="input-field" placeholder="Repetir senha">
+        <input class="input-field" placeholder="Nome" type = "text"[(ngModel)]="nome">
+        <input class="input-field" placeholder="E-mail" type = "text" [(ngModel)]="email">
+        <input class="input-field" placeholder="Senha" type = "password" [(ngModel)]="password">
+        
         <div class="acc-type-container">
 
             <p class="subtitle">Tipo de conta</p>
-            <label>Freelancer</label>
-            <input type="checkbox" class="acc-type" value="freelancer">
-            <label>Contratante</label>
-            <input type="checkbox" class="acc-type" value="contratante">
+            <select name="select" [(ngModel)]="tipo">
+                <option value="" selected disabled>Selecione o tipo de conta</option>
+                <option value="freelancer" >Freelancer</option>
+                <option value="contratante">Contratante</option>
+              </select>
         </div>
-        <button class="btn-submit">Cadastrar</button>
+        <button (click)="createUser()"class="btn-submit">Cadastrar</button>
+        <br>
+        <button (click)="getAllUsers()"class="btn-submit">Listar Usuário</button>
+        
     </div>
 </div>

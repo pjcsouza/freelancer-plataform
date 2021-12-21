@@ -10,6 +10,8 @@ import { NewServiceComponent } from './new-service/new-service.component';
 import { ListServicesComponent } from './list-services/list-services.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    NgbPaginationModule, NgbAlertModule
+    NgbPaginationModule, NgbAlertModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
