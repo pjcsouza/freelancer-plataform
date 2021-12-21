@@ -1,0 +1,48 @@
+@import '../../utils/variables.scss';
+
+
+.form{
+    display: flex;
+    margin:0 auto;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    gap: 50px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    .title{
+        font-weight: bolder;
+    }
+    .input-field{
+        height: 50px;
+        border:none;
+        border-radius: 50px;
+        border:rgb(155, 155, 155) solid 1px;
+        padding-left: 20px;
+        
+    }
+
+    
+    .btn-submit{
+        background-color: $color-dark-orange;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px;
+        height: 50px;
+    }
+    .link{
+        width: 100%;
+        text-align: center;
+        
+    }
+}
+.page{
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-dark-green ;
+    justify-content: center;
+    display: flex;
+}
