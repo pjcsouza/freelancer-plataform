@@ -11,6 +11,7 @@ import { ListServicesComponent } from './list-services/list-services.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegisterPageComponent,
     NewServiceComponent,
     ListServicesComponent,
-    HomePageComponent
+    HomePageComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,101 @@
-<p>list-services works!</p>
+<div class="page">
+    <div class="title-content">
+        <h1 class="title">Meus serviços</h1>
+        <a href='./new-service' class="btn-actions-new">Novo Serviço</a></div>
+    
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem>
+          <a ngbNavLink>Em aberto</a>
+          <ng-template ngbNavContent>
+            <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let service of openServices; index as i">
+              <th scope="row">{{ service.id }}</th>
+              <td>
+                
+                {{ service.description }}
+              </td>
+              <td>{{service.value}}</td>
+              
+              <td><a href="/services/{{service.id}}" class="btn-actions">Ver Detalhes</a></td>    
+              
+            </tr>
+            </tbody>
+          </table>
+          </ng-template>
+        </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Em andamento</a>
+          <ng-template ngbNavContent>
+            <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Freelancer</th>
+              <th scope="col">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let service of inProgressServices; index as i">
+              <th scope="row">{{ service.id }}</th>
+              <td>
+                
+                {{ service.description }}
+              </td>
+              <td>{{service.value}}</td>
+              <td>{{service.freelancer}}</td>
+              
+              <td><a href="/services/{{service.id}}" class="btn-actions">Ver Detalhes</a></td>    
+              
+            </tr>
+            </tbody>
+          </table>
+          </ng-template>
+          
+        </li>
+        <li ngbNavItem>
+            <a ngbNavLink>Concluídos</a>
+            <ng-template ngbNavContent>
+                <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Descrição</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col">Freelancer</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let service of doneServices; index as i">
+                  <th scope="row">{{ service.id }}</th>
+                  <td>
+                    
+                    {{ service.description }}
+                  </td>
+                  <td>{{service.value}}</td>
+                  <td>{{service.freelancer}}</td>
+                  <td><ngb-rating [rate]=service.rating></ngb-rating></td>
+                  
+                  <td><a href="/services/{{service.id}}" class="btn-actions">Ver Detalhes</a></td>    
+                  
+                </tr>
+                </tbody>
+              </table>
+              </ng-template>
+            
+          </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ListServicesComponent } from './list-services/list-services.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { NewServiceComponent } from './new-service/new-service.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path:'new-service', component:NewServiceComponent
+  },
+  {
+    path:'services', component:ListServicesComponent
   }
 ];
 

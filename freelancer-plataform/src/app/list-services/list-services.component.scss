@@ -1,0 +1,47 @@
+@import '../../utils/variables.scss';
+
+.title-content{
+    display: flex;
+    justify-content: space-between;
+    .title{
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 36px;
+    }
+    button{
+        background-color:$color-light-green;
+        color:white;
+        border:none;
+        border-radius: 100px;
+        width: 150px;
+    }
+}
+.page{
+    padding:50px;
+    background-color: whitesmoke;
+    height: 100vh;
+}
+.btn-actions{
+    height: 36px;
+    width: 120px;
+    background-color: $color-light-orange   ;
+    color: white;
+    font-weight: bold;
+    appearance: button;
+    text-decoration: none;
+    text-align: center;
+    line-height: 36px;
+    margin-top: -10px;
+}
+.btn-actions-new{
+    height: 36px;
+    width: 120px;
+    background-color: $color-light-green   ;
+    color: white;
+    font-weight: bold;
+    appearance: button;
+    text-decoration: none;
+    text-align: center;
+    line-height: 36px;
+    margin-top: -10px;
+}
